@@ -8,6 +8,8 @@ import {
 } from "react-native";
 import Colors from "../styles/Colors";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import {withNavigation} from "react-navigation"
+
 
 const Header = props => {
 
@@ -16,7 +18,7 @@ const Header = props => {
   };
 
   const onBack = () => {
-    alert("back")
+    props.navigation.pop(1);
   };
 
     const { isBack, text, isRefresh} = props;
@@ -74,4 +76,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Header;
+export default withNavigation(Header);

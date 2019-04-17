@@ -1,5 +1,6 @@
 import {createStackNavigator,createAppContainer} from "react-navigation"
 import MainScreen from "../screens/MainScreen"
+import NewsScreen from "../screens/NewsScreen"
 
 const navigation = createStackNavigator({
     Home: {
@@ -8,6 +9,12 @@ const navigation = createStackNavigator({
           header: null
         }
       },
+    News: {
+      screen: NewsScreen,
+      navigationOptions: {
+        header: null
+      }
+    }
 })
 
 const Navigation = createAppContainer(navigation);
