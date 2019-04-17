@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   View,
   Text,
@@ -9,21 +9,17 @@ import {
 import Colors from "../styles/Colors";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-class Header extends Component {
-  state = {
-    isSearchActive: false
+const Header = props => {
+
+  const onRefresh = () => {
+    alert("refresh")
   };
 
-  onLogout = () => {
-    alert("Logout")
-  };
-
-  onBack = () => {
+  const onBack = () => {
     alert("back")
   };
 
-  render() {
-    const { isBack, text, isLogoutIcon, searchBar } = this.props;
+    const { isBack, text, isRefresh} = props;
     return (
       <SafeAreaView style={{ backgroundColor: Colors.primaryColor }}>
         <View style={styles.container}>
@@ -34,30 +30,20 @@ class Header extends Component {
           />
           {isBack && (
             <Icon
-              onPress={this.onBack}
+              onPress={onBack}
               name="arrow-left"
               size={24}
               color={Colors.whiteColor}
             />
           )}
           <Text style={[styles.text, isBack && { marginLeft: 12 }]}>
-            {text}
+            {text.toUpperCase()}
           </Text>
-          {searchBar && (
+          {isRefresh && (
             <Icon
-              style={{ marginRight: 10 }}
-              onPress={this.props.onSearchPress}
-              name="magnify"
-              size={24}
-              color={Colors.whiteColor}
-            />
-          )}
-
-          {isLogoutIcon && (
-            <Icon
-              onPress={this.onLogout}
-              name="logout"
-              size={24}
+              onPress={onRefresh}
+              name="refresh"
+              size={28}
               color={Colors.whiteColor}
             />
           )}
@@ -65,19 +51,20 @@ class Header extends Component {
       </SafeAreaView>
     );
   }
-}
 
 const styles = StyleSheet.create({
   container: {
     padding: 14,
     backgroundColor: Colors.primaryColor,
-    flexDirection: "row"
+    flexDirection: "row",
   },
   text: {
-    fontSize: 18,
+    fontSize: 22,
     color: Colors.whiteColor,
     fontWeight: "bold",
-    flex: 1
+    flex: 1,
+    textAlign: 'center'
+
   },
   textInput: {
     padding: 0,

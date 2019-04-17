@@ -17,7 +17,7 @@ const Card = props => {
         style={[styles.card]}>
         <Image
           style={{flex:1}}
-          source={{uri: urlToImage}}
+          source={{uri: urlToImage || `https://www.pastepic.xyz/images/2019/04/17/undraw_synchronize_ccxkec1ebff1acc1e038.png`}}
         />
         <View style={{margin:20}}>
           <Text style={{fontSize:20}}>{title}</Text>
