@@ -10,6 +10,7 @@ import {
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Colors from "../styles/Colors"
 import {withNavigation} from "react-navigation"
+import LinearGradient from "react-native-linear-gradient"
 
 const {width, height} = Dimensions.get('window')
 
@@ -31,13 +32,17 @@ const Card = props => {
         </View>
         
       </View>
-      <TouchableOpacity onPress={()=>props.navigation.navigate("News", {url})} style={{width:50,height:50,backgroundColor:Colors.fabColor,borderRadius:50,justifyContent:"center",alignItems:"center",position:"absolute",top:-10,right:15}}>
-          <Icon
-              name="eye"
-              size={30}
-              color={Colors.whiteColor}
-          />
-        </TouchableOpacity>
+      
+      <LinearGradient colors={[Colors.fabColor,Colors.fabDarkColor]} style={{width:50,height:50,borderRadius:50,justifyContent:"center",alignItems:"center",position:"absolute",top:-10,right:15}}>
+      <TouchableOpacity activeOpacity={0.7} onPress={()=>props.navigation.navigate("News", {url})} > 
+      <Icon
+          name="eye"
+          size={30}
+          color={Colors.whiteColor}
+      />
+      </TouchableOpacity>
+      </LinearGradient>
+      
       <View style={{flex:1,width:"100%", flexDirection:"row",justifyContent:"space-evenly",alignItems:"center"}}>
       
       {/* <View style={{width:50,height:50,backgroundColor:'#38d39f',borderRadius:50,justifyContent:"center",alignItems:"center"}}>
