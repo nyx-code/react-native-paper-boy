@@ -9,7 +9,7 @@ import CardDeck from "../components/CardDeck"
 const MainScreen = () => {
     return (
         <View style={{flex:1}}>
-          <Header text="Paper Boy" isRefresh={true}/>
+          <Header text="Paper Boy" isRefresh={true} mainTitle={true}/>
           <CardDeck data={Data}/>
         </View>
         

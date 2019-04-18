@@ -21,7 +21,11 @@ const Header = props => {
     props.navigation.pop(1);
   };
 
-    const { isBack, text, isRefresh} = props;
+  const toOpenDrawer = () => {
+    props.navigation.push("Category")
+  }
+
+    const { isBack, text, isRefresh, mainTitle} = props;
     return (
       <SafeAreaView style={{ backgroundColor: Colors.primaryColor }}>
         <View style={styles.container}>
@@ -38,8 +42,18 @@ const Header = props => {
               color={Colors.whiteColor}
             />
           )}
-          <Text style={[styles.text, isBack && { marginLeft: 12 }]}>
-            {text.toUpperCase()}
+          {
+            mainTitle && (
+              <Icon
+              onPress={toOpenDrawer}
+              name="menu"
+              size={24}
+              color={Colors.whiteColor}
+            />
+            )
+          }
+          <Text style={[styles.text, isBack && { marginLeft: 12 }, mainTitle && { textAlign:"center" }]}>
+            {mainTitle ? text.toUpperCase() : text}
           </Text>
           {isRefresh && (
             <Icon
@@ -65,7 +79,6 @@ const styles = StyleSheet.create({
     color: Colors.whiteColor,
     fontWeight: "bold",
     flex: 1,
-    textAlign: 'center'
 
   },
   textInput: {
