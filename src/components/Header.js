@@ -14,7 +14,7 @@ import {withNavigation} from "react-navigation"
 const Header = props => {
 
   const onRefresh = () => {
-    alert("refresh")
+    props.navigation.navigate("FetchData")
   };
 
   const onBack = () => {

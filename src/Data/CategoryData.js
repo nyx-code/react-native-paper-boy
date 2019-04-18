@@ -22,7 +22,7 @@ const CategoryData = [
         name: 'Technology',
         uri: 'http://pastepic.xyz/images/2019/04/18/undraw_artificial_intelligence_upfn6b3e2ecd5a0da533.png',
         desc: "Must read stories for you :)"
-    },
+    }
 ]
 
 export default CategoryData

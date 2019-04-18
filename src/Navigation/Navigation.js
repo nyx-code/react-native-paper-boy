@@ -1,14 +1,14 @@
-import {createStackNavigator,createAppContainer} from "react-navigation"
+import {createStackNavigator,createAppContainer,createSwitchNavigator} from "react-navigation"
 import MainScreen from "../screens/MainScreen"
 import NewsScreen from "../screens/NewsScreen"
 import CategoryScreen from "../screens/CategoryScreen"
-import { fromLeft, zoomIn, zoomOut } from 'react-navigation-transitions'
+import FetchDataScreen from "../screens/FetchDataScreen"
+import { fromLeft,fromRight, zoomIn, zoomOut } from 'react-navigation-transitions'
  
 const handleCustomTransition = ({ scenes }) => {
   const prevScene = scenes[scenes.length - 2];
   const nextScene = scenes[scenes.length - 1];
  
-  // Custom transitions go there
   if (prevScene
     && prevScene.route.routeName === 'Home'
     && nextScene.route.routeName === 'Category') {
@@ -51,6 +51,15 @@ const navigation = createStackNavigator({
   transitionConfig: (nav) => handleCustomTransition(nav)
 })
 
-const Navigation = createAppContainer(navigation);
 
-export default Navigation;
+const Navigation = createSwitchNavigator(
+  {
+    FetchData: FetchDataScreen,
+    App: navigation
+  },
+  {
+    initialRouteName: "FetchData"
+  }
+);
+
+export default createAppContainer(Navigation);
