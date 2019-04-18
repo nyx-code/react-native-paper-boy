@@ -38,7 +38,7 @@ const Header = props => {
             <Icon
               onPress={onBack}
               name="arrow-left"
-              size={24}
+              size={28}
               color={Colors.whiteColor}
             />
           )}
@@ -47,13 +47,22 @@ const Header = props => {
               <Icon
               onPress={toOpenDrawer}
               name="menu"
-              size={24}
+              size={28}
               color={Colors.whiteColor}
             />
             )
           }
           <Text style={[styles.text, isBack && { marginLeft: 12 }, mainTitle && { textAlign:"center" }]}>
-            {mainTitle ? text.toUpperCase() : text}
+            {mainTitle && (
+              <Icon
+            name="newspaper"
+            size={25}
+            style={{marginLeft:10}}
+            color={Colors.whiteColor}
+            /> 
+            )}
+
+                {mainTitle ? " "+text.toUpperCase() : text}
           </Text>
           {isRefresh && (
             <Icon
