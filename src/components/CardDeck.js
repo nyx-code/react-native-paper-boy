@@ -8,9 +8,9 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 export default props => {
     const {data} = props
     return (
-        <View style={{flex:10,backgroundColor: Colors.primaryColor}}>
+        <View style={{flex:10,backgroundColor: Colors.primaryColorDark}}>
             <Swiper
-                style={{flex:7,backgroundColor: Colors.primaryColor}}
+                style={{flex:7,backgroundColor:"transparent"}}
                 paginationStyle={{ container: { backgroundColor: 'transparent' } }}
                 paginationLeft={''}
                 paginationRight={''}

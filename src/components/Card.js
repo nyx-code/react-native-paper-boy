@@ -23,6 +23,7 @@ const Card = props => {
         <Image
           style={{flex:1}}
           source={{uri: urlToImage || `https://www.pastepic.xyz/images/2019/04/17/undraw_synchronize_ccxkec1ebff1acc1e038.png`}}
+          resizeMode="cover"
         />
         <View style={{margin:20}}>
           <Text style={{fontSize:20}}>{title}</Text>
@@ -30,10 +31,10 @@ const Card = props => {
         </View>
         
       </View>
-      <TouchableOpacity onPress={()=>props.navigation.navigate("News", {url})} style={{width:60,height:60,backgroundColor:'#38d39f',borderRadius:50,justifyContent:"center",alignItems:"center",position:"absolute",top:-10,right:15}}>
+      <TouchableOpacity onPress={()=>props.navigation.navigate("News", {url})} style={{width:50,height:50,backgroundColor:Colors.fabColor,borderRadius:50,justifyContent:"center",alignItems:"center",position:"absolute",top:-10,right:15}}>
           <Icon
               name="eye"
-              size={35}
+              size={30}
               color={Colors.whiteColor}
           />
         </TouchableOpacity>
